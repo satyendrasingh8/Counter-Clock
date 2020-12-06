@@ -22,81 +22,99 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Color(0xFF2D2F41),
       body: Row(
         children: [
-         Column(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-          buildMenuButton('Clock','assets/clock_icon.png'),
-           buildMenuButton('Alarm','assets/alarm_icon.png'),
-           buildMenuButton('Timer','assets/timer_icon.png'),
-           buildMenuButton('Stopwatch','assets/stopwatch_icon.png'),
-           ],
-         ),
-         VerticalDivider(color: Colors.white54,width: 1,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              buildMenuButton('Clock', 'assets/clock_icon.png'),
+              buildMenuButton('Alarm', 'assets/alarm_icon.png'),
+              buildMenuButton('Timer', 'assets/timer_icon.png'),
+              buildMenuButton('Stopwatch', 'assets/stopwatch_icon.png'),
+            ],
+          ),
+          VerticalDivider(
+            color: Colors.white54,
+            width: 1,
+          ),
           Expanded(
-                      child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 32,vertical: 64),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 64),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                       child: Text(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: Text(
                       'Clock',
-                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 24),
+                      style: TextStyle(
+                          fontFamily: 'avenir',
+                          color: Colors.white,
+                          fontSize: 24),
                     ),
                   ),
                   Flexible(
-                flex: 2,
-                         child: Column(
+                    flex: 2,
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      Text(
-                      formattedTime,
-                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 64),
-                    ),
-                    Text(
-                      formattedData,
-                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 20),
-                    ),
+                        Text(
+                          formattedTime,
+                          style: TextStyle(
+                              fontFamily: 'avenir',
+                              color: Colors.white,
+                              fontSize: 64),
+                        ),
+                        Text(
+                          formattedData,
+                          style: TextStyle(
+                              fontFamily: 'avenir',
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
                       ],
                     ),
                   ),
-                
                   Flexible(
-                    flex: 4,
+                      flex: 4,
+                      fit: FlexFit.tight,
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: ClockView(
+                            size: 250,
+                          ))),
+                  Flexible(
+                    flex: 2,
                     fit: FlexFit.tight,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: ClockView())),
-                  Flexible(
-                  flex: 2,           
-                       fit: FlexFit.tight,      
-                         child: Column(
-                           crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Timezone',
-                          style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 24),
+                          style: TextStyle(
+                              fontFamily: 'avenir',
+                              color: Colors.white,
+                              fontSize: 24),
                         ),
-                         SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.language,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'UTC' + offsetSign + timezoneString,
-                          style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 24),
-                        ),
-                      ],
-                    )
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.language,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'UTC' + offsetSign + timezoneString,
+                              style: TextStyle(
+                                  fontFamily: 'avenir',
+                                  color: Colors.white,
+                                  fontSize: 24),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
-                 
                 ],
               ),
             ),
@@ -107,16 +125,21 @@ class _HomePageState extends State<HomePage> {
   }
 
   Padding buildMenuButton(String title, String image) {
-    return 
-    Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: FlatButton(onPressed:(){}, child:Column(
+      child: FlatButton(
+          onPressed: () {},
+          child: Column(
             children: [
-              Image.asset(image,scale: 1.5,),
-               Text(
-                  title ?? '',
-                  style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 14),
-                ),
+              Image.asset(
+                image,
+                scale: 1.5,
+              ),
+              Text(
+                title ?? '',
+                style: TextStyle(
+                    fontFamily: 'avenir', color: Colors.white, fontSize: 14),
+              ),
             ],
           )),
     );
