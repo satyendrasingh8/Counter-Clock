@@ -48,8 +48,9 @@ class _HomePageState extends State<HomePage> {
                       'Clock',
                       style: TextStyle(
                           fontFamily: 'avenir',
+                          fontWeight: FontWeight.w600,
                           color: Colors.white,
-                          fontSize: 24),
+                          fontSize: 30),
                     ),
                   ),
                   Flexible(
@@ -61,7 +62,9 @@ class _HomePageState extends State<HomePage> {
                           formattedTime,
                           style: TextStyle(
                               fontFamily: 'avenir',
+                              fontWeight: FontWeight.w600,
                               color: Colors.white,
+                  
                               fontSize: 64),
                         ),
                         Text(
@@ -69,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontFamily: 'avenir',
                               color: Colors.white,
+                              fontWeight: FontWeight.w500,
                               fontSize: 20),
                         ),
                       ],
@@ -80,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                       child: Align(
                           alignment: Alignment.center,
                           child: ClockView(
-                            size: 250,
+                            size: MediaQuery.of(context).size.height/4,
                           ))),
                   Flexible(
                     flex: 2,
@@ -93,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontFamily: 'avenir',
                               color: Colors.white,
+                              fontWeight: FontWeight.w400,
                               fontSize: 24),
                         ),
                         SizedBox(height: 10),
@@ -108,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(
                                   fontFamily: 'avenir',
                                   color: Colors.white,
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 24),
                             ),
                           ],
