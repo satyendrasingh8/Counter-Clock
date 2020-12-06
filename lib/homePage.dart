@@ -25,63 +25,100 @@ class _HomePageState extends State<HomePage> {
          Column(
            mainAxisAlignment: MainAxisAlignment.center,
            children: [
-          FlatButton(onPressed:(){}, child:Column(
-            children: [
-              FlutterLogo(),
-               Text(
-                  'Clock',
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                ),
-            ],
-          ))
-
+          buildMenuButton('Clock','assets/clock_icon.png'),
+           buildMenuButton('Alarm','assets/alarm_icon.png'),
+           buildMenuButton('Timer','assets/timer_icon.png'),
+           buildMenuButton('Stopwatch','assets/stopwatch_icon.png'),
            ],
          ),
          VerticalDivider(color: Colors.white54,width: 1,),
           Expanded(
                       child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 32,vertical: 29),
+              padding: EdgeInsets.symmetric(horizontal: 32,vertical: 64),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Clock',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                       child: Text(
+                      'Clock',
+                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 24),
+                    ),
                   ),
-                  SizedBox(height: 32),
-                  Text(
-                    formattedTime,
-                    style: TextStyle(color: Colors.white, fontSize: 64),
-                  ),
-                  Text(
-                    formattedData,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  ClockView(),
-                  Text(
-                    'Timezone',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                  SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.language,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 16),
+                  Flexible(
+                flex: 2,
+                         child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                       Text(
-                        'UTC' + offsetSign + timezoneString,
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                    ],
-                  )
+                      formattedTime,
+                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 64),
+                    ),
+                    Text(
+                      formattedData,
+                      style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 20),
+                    ),
+                      ],
+                    ),
+                  ),
+                
+                  Flexible(
+                    flex: 4,
+                    fit: FlexFit.tight,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: ClockView())),
+                  Flexible(
+                  flex: 2,           
+                       fit: FlexFit.tight,      
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Timezone',
+                          style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 24),
+                        ),
+                         SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.language,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'UTC' + offsetSign + timezoneString,
+                          style: TextStyle(fontFamily: 'avenir',color: Colors.white, fontSize: 24),
+                        ),
+                      ],
+                    )
+                      ],
+                    ),
+                  ),
+                 
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Padding buildMenuButton(String title, String image) {
+    return 
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: FlatButton(onPressed:(){}, child:Column(
+            children: [
+              Image.asset(image,scale: 1.5,),
+               Text(
+                  title ?? '',
+                  style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 14),
+                ),
+            ],
+          )),
     );
   }
 }
