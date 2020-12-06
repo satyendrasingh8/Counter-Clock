@@ -130,10 +130,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Padding buildMenuButton(String title, String image) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: FlatButton(
+   Widget buildMenuButton(String title, String image) {
+    return  FlatButton(
+        color: title =='Clock' ? Colors.redAccent : Colors.transparent,
           onPressed: () {},
           child: Column(
             children: [
@@ -147,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                     fontFamily: 'avenir', color: Colors.white, fontSize: 14),
               ),
             ],
-          )),
-    );
+          ));
+    
   }
 }
