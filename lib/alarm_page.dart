@@ -100,6 +100,7 @@ class _AlarmPageState extends State<AlarmPage> {
             );
           }).followedBy(
             [
+              if(alarms.length<5)
               DottedBorder(
                 strokeWidth: 3,
                 color: CustomColors.clockOutline,
@@ -132,6 +133,8 @@ class _AlarmPageState extends State<AlarmPage> {
                   ),
                 ),
               )
+           else 
+             Text('Only 5 alarms allowed!'),
             ]
           ).toList()),
         ),
